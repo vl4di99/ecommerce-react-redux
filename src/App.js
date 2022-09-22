@@ -1,56 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import { useSelector } from "react-redux";
+import Product from "./components/Product";
+import { selectItems } from "./features/basketSlice";
 
 function App() {
+  const items = useSelector(selectItems);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
+    <div>
+      <header className="flex justify-between items-center p-4">
+        <div>
+          <h1 className="text-5xl">vl4di99's Store</h1>
+          <h2 className="text-2xl">Welcome to my store</h2>
+        </div>
+
+        <div>
+          <h3>Items in your basket: </h3>
+        </div>
       </header>
+
+      <Product title="iPad Pro 2022" />
+      <Product title="iPhone 13 Pro Max" />
+      <Product title="Rubik's Cube" />
     </div>
   );
 }
